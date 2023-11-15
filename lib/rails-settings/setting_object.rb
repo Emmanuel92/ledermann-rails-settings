@@ -68,7 +68,7 @@ module RailsSettings
     private
 
     def _get_value(name)
-      if value[name].nil?
+      if value.try(:[], name).nil?
         default_value = _get_default_value(name)
         _deep_dup(default_value)
       else
